@@ -1,0 +1,112 @@
+BREASTCARE AI — MASTER CONTINUATION PROMPT
+Existing Project Status, Detailed Workflow, Future Plan, and Viva Explanation
+
+PROJECT LOCATION
+Continue the existing project at:
+C:\Users\ayush\Downloads\BreastCare_AI_Phase2_2
+
+Do not start a replacement project. Preserve the current source, account data, local database, encryption key, datasets, trained checkpoints, research results, and working environment. Before changing anything, inspect the actual target folder and reconcile this prompt with its current files. This summary records the state reported by the previous project audit; it is a starting point to verify, not permission to assume files still exist or to describe unverified work as complete.
+
+YOUR ROLE AND HOW TO REPORT PROGRESS
+Work through the remaining project in small, reviewable steps. Before each substantial step, tell the user in clear, non-technical language:
+1. What you are going to look at or change.
+2. Why this step matters.
+3. What you found or completed.
+4. What remains and what the next step is.
+
+The user wants to understand the project, not only receive code. Explain technical terms in simple words when first used. Keep showing meaningful progress while working; do not disappear for long stretches or stop at a plan when the authorized implementation can proceed. Ask only for information or access that is truly needed, such as the user personally accepting a restricted dataset policy or supplying approved patient-level labels.
+
+PROJECT DEFINITION
+BreastCare AI is a local research-software project that brings breast-cancer-related data workflows into one application. A signed-in researcher selects a workflow, uploads an authorized research file, the application checks the file and request, runs the available software/model step, and presents a readable result with its limits. Saved analysis records belong to the signed-in local account and can be reviewed or removed. The project is not a clinical diagnostic product, does not replace a clinician or genetic counsellor, and has not been clinically validated.
+
+The application is intended to demonstrate a complete software workflow across data review, document text extraction, medical-image metadata inspection, histopathology experiments, and genomic data readiness. Each module must clearly distinguish an implemented feature from a research experiment, a metadata-only check, a planned feature, or a validated clinical capability. Never call a module a prediction model unless compatible trained weights are actually integrated and the target, data, and evaluation support that claim.
+
+EXISTING PROJECT — REPORTED COMPLETION BASELINE
+Verify each point against the target project’s source, manifests, UI, results, and data directories. Update this baseline if the files disagree.
+
+A. Application foundation and user workflows
+- Frontend: React, TypeScript, and Vite. Backend: Python and FastAPI. Local persistence uses SQLite.
+- Local user registration/sign-in uses PBKDF2-HMAC password hashing and bearer-token authentication. Analysis history is account-scoped; stored originals/results are encrypted with a local Fernet key where the workflow saves them. Users can inspect readable results and supported original-file previews/downloads, and delete saved records.
+- The application has seven workflow areas: CSV analysis; doctor-report PDF/image text extraction and OCR; histopathology; CT; MRI; X-ray/mammography; and BRCA genomics. Also inspect dashboard, authentication, settings, model registry/experiment results if present, and analysis history.
+- Existing uploads were reported to have these limits: CSV and BRCA cohort preflight 50 MB; reports 25 MB with scanned PDFs up to 20 pages; histopathology 50 MB; single raster/DICOM image 50 MB; NIfTI 500 MB; DICOM series up to 500 instances, 250 MB total, and 50 MB per instance. Confirm actual values in source and UI before repeating them.
+- The UI is intended to show understandable results, status/errors, saved information in readable form, and boundaries near research outputs. Review the actual screens and fix broken navigation, confusing labels, inaccessible controls, or misleading result language without removing working features.
+
+B. Histopathology models and evidence
+- Previous audit reported 20 BreaKHis ResNet-18 checkpoints (fold/magnification combinations) and five scratch-CNN baseline checkpoints. Confirm each checkpoint, manifest entry, training script, and inference path exists before claiming it is included or usable.
+- BreaKHis training was reported as magnification-specific with patient-grouped splits. The reported cross-validation metrics are research split results, not patient-level confidence estimates or clinical validation.
+- External evaluation on BACH was reported near chance, with weak non-carcinoma specificity. Keep this negative transfer result visible and explain it plainly. Do not claim the BreaKHis model generalizes to BACH or is ready for clinical use.
+- Histopathology is currently an experimental research function. Make sure the UI and documentation accurately state model availability, supported input, output meaning, limitations, and whether Grad-CAM is available.
+
+C. CT, MRI, and X-ray/mammography
+- CT/MRI/X-ray/mammography screens were reported to support technical file/metadata review only; they do not perform pixel-based cancer prediction. Check the current endpoints and frontend to confirm.
+- CT/MRI prediction work is gated by the absence of an approved task-specific cohort, labels, and integrated model. A future QIN-BREAST data source may require the user to read and accept access terms personally. Never accept terms, create an account, or download restricted data on the user’s behalf.
+- Mammography model work is paused at the user’s direction. The local pilot was reported to contain only two verified image/mask pairs, far too few to train or evaluate a reliable model. Keep it paused unless the user explicitly reopens that work and the data gap is addressed. Do not train on the pilot or imply a trained mammography model exists.
+
+D. BRCA and genomics — keep three different tasks separate
+1. App cohort preflight: reported to check a de-identified CSV’s schema and aggregate labels/quality. This is a data-readiness check, not a prediction.
+2. Offline ClinVar variant annotation experiment: reported to use 2,938 filtered BRCA1/BRCA2 variant records, with a grouped holdout of 581 and internal holdout accuracy 0.983, balanced accuracy 0.980, and ROC AUC 0.995. It is a variant-level experiment on records from the same source database, was not integrated into the app, is not independent clinical validation, and does not predict whether a person carries an inherited variant or their cancer risk. Confirm artifact, split, and metrics before restating them.
+3. Patient-level inherited germline carrier-risk prediction: this is the user’s priority, but it requires an authorized participant-level germline cohort with verified genetic-test labels and a precisely defined outcome. Public variant annotations cannot substitute for participant records. Do not fabricate labels or infer carrier status from an individual’s data without an appropriately designed and reviewed system.
+4. Tumour somatic mutation analysis: a separate tumour-data problem. TCGA-BRCA MAF files were reported to be present, but they do not by themselves provide the patient-level outcome needed for the originally intended inherited-carrier model. Do not mix somatic tumour mutations and inherited germline variants.
+
+E. Project documentation
+- The deliverable is long-form PROJECT DOCUMENTATION, not a conference paper or research paper. Preserve the project-report structure (cover, certificate, acknowledgement, contents, chapters, conclusion, and bibliography) and use IEEE-style numbered in-text citations and numbered references with visible clickable links.
+- Include an end-to-end module-flow diagram in Methodology and a user workflow diagram in Proposed Design/UI/UX. Keep blank, clearly captioned spaces for real application screenshots until current screens are captured.
+- Document the actual application and current research evidence. State what is complete, partial, paused, blocked by data/access, and future work. Do not turn intended features into completed claims. Do not use the phrase “open source” as a project label. Keep personal names, dates, guide details, and other institution-specific fields editable unless verified.
+- The current report was reported at `submission\BreastCare_AI_Project_Documentation_and_Viva_Voce.docx`; a continuation prompt was reported at `submission\BreastCare_AI_Continuation_Prompt.txt`. Verify the actual paths and files before editing.
+
+MANDATORY FIRST AUDIT
+Before coding, inspect at least:
+- README and all project milestone/roadmap/status documents.
+- Frontend routes/pages, API endpoints, authentication, upload limits, history/settings, and model-readiness text.
+- Backend modules, database schema/migrations, encryption configuration, and error handling.
+- Dataset inventory, labels, licenses/access notes, model manifests/checkpoints, training/evaluation scripts, and research results.
+- Current project report and screenshot areas.
+
+Produce a concise status table with four labels: COMPLETE (implemented and verified), PARTIAL (some working pieces, meaningful gaps), PAUSED (explicitly deferred), and NOT STARTED/BLOCKED (missing implementation or dependent on data/access). For every claim, name the evidence file or screen. Note discrepancies between this prompt and the project. Preserve user data and secrets; do not clean up or move data without a clear reason and safeguards.
+
+DETAILED END-TO-END WORKFLOW — FROM PROJECT START TO USER EXPLANATION
+Explain and, where useful, implement the project in this sequence. Do not skip prerequisites or pretend later stages are done when earlier gates are unmet.
+
+STAGE 1 — Understand the starting project
+Inspect files and screens; record what runs, what is implemented, which models/data are present, and what is broken. Explain in plain language: “First I checked what already exists so I can continue your project instead of rebuilding it.” Save a dated audit/status note in the project only if it fits the existing documentation conventions.
+
+STAGE 2 — Make the local application reliable
+Confirm the normal local launch process, frontend/backend connection, health status, account registration/sign-in, token/session behavior, upload validation, saved history, original-file viewing, deletion, and settings. Fix reproducible defects without breaking existing accounts or replacing the user’s Python/PyTorch/CUDA environment. Keep the service local; do not expose it publicly. Explain how a file travels from the user’s screen to the local API and then back as a readable result.
+
+STAGE 3 — Make each module’s actual readiness obvious
+For each of the seven modules, document: accepted input; validation; operation performed; output saved or returned; current model/data status; limitations; and next requirement. Ensure UI labels match the backend. Metadata checks must say “metadata review”; cohort preflight must say “data check”; research classifiers must say “experimental model.” Disable or clearly mark unavailable model actions instead of returning invented predictions.
+
+STAGE 4 — Preserve and assess completed experiments
+Verify histopathology checkpoints and manifests; reproduce an existing evaluation only if the environment and saved artifacts make it safe and practical. Explain the BreaKHis-to-BACH transfer finding as a limitation. Verify the ClinVar artifact and its exact task and split; label it variant annotation and keep it separate from the app preflight and patient-level prediction. Do not silently retrain or replace checkpoints.
+
+STAGE 5 — Build the future work in dependency order
+Priority 1: finish an accurate, usable local application and module-readiness experience.
+Priority 2: complete a defensible genomics plan. First choose the target explicitly: inherited germline carrier status, a defined genetic variant annotation task, or tumour somatic analysis. For the user’s inherited-risk priority, write a cohort/data specification: inclusion criteria, verified labels, sample unit, target definition, allowed predictors, missing-data handling, authorization/ethics requirements, and patient-level split. The user must supply or personally obtain authorized cohort access; do not invent data.
+Priority 3: after an authorized cohort exists, build a reproducible preprocessing/training/evaluation pipeline with patient-separated train/validation/test sets, a frozen independent test, baseline models, clinically meaningful metrics, calibration/uncertainty, and documented failure cases. Keep research results distinct from clinical validation.
+Priority 4: CT/MRI can proceed only after a task, compatible authorized cohort, labels, preprocessing, and independent evaluation plan exist. Until then, make safe pipeline preparation or explain the access gate; do not accept restricted terms for the user.
+Priority 5: mammography remains paused unless the user explicitly requests reopening and provides a sufficient authorized, labeled dataset. Two pilot pairs are not a training cohort.
+Priority 6: keep documentation, screenshots, diagrams, citations, references, project status, and viva explanation aligned with the actual final code and results.
+
+STAGE 6 — Verify each delivered change
+For each implementation change, state what changed and why, run only the focused checks needed for that change (unless the user asks for broader tests), and show the actual result. For document updates, render and visually inspect pages when an appropriate renderer is available. Do not claim a check passed if it did not run. Preserve backups or use reversible changes for important data/configuration.
+
+STAGE 7 — Explain the project to the user for a viva/demo
+At the end of a work session, provide:
+- A simple 1-minute explanation of what BreastCare AI is.
+- A walkthrough script in screen order: launch → register/sign in → dashboard → choose a module → select a de-identified sample → validate → process → explain result and limitation → open history → preview/download/delete a saved item → sign out.
+- A module-by-module explanation of what works today and what remains.
+- Plain definitions for terms such as DICOM, histopathology, germline, somatic, variant annotation, cohort, patient-level split, sensitivity/recall, specificity, AUC, and clinical validation when relevant.
+- Likely viva questions with honest, concise answers, especially: “What does the BRCA module predict?”, “Is the software clinically validated?”, “Why is mammography paused?”, and “What do the CT/MRI pages do?”
+- A future-work roadmap that clearly separates work the developer can do now from work dependent on authorized datasets, institutional/ethics approval, or the user accepting access terms.
+
+IMPORTANT SAFETY, PRIVACY, AND CLAIM RULES
+- Use only authorized, de-identified research data. Never upload real patient data to external services or expose secrets, tokens, private keys, or identifiable screenshots.
+- Do not provide patient-specific medical or genetic advice. The software is a research prototype, not a clinical service.
+- No claim of diagnostic accuracy, clinical benefit, regulatory compliance, or clinical validation without appropriate evidence and review.
+- Never fabricate datasets, model weights, evaluation results, source citations, project features, access permissions, or institution details.
+- Do not download restricted datasets, agree to data-use policies, or contact dataset owners on the user’s behalf.
+- Do not delete datasets or model artifacts just because they appear unused; inspect references and confirm impact before any cleanup.
+- Continue to show progress in plain language and finish the feasible, authorized work. End with a factual list of completed, partial, paused, and blocked work, evidence, and the next concrete action.
+
+START HERE
+Inspect the actual Phase2_2 project and its current continuation prompt/report. Compare the repository with this baseline. Send the user a short status update in plain language, then carry out the highest-priority feasible next step. Keep the user able to understand and explain the project throughout.

@@ -1,0 +1,84 @@
+{
+  "scope": "variant-level ClinVar annotation classification research pilot; not a patient-level carrier-risk model",
+  "created_utc": "2026-10-28T19:03:03.028882+00:00",
+  "target": "ClinVar germline classification collapsed as Pathogenic/Likely pathogenic vs Benign/Likely benign",
+  "source": "NCBI ClinVar filtered BRCA1/BRCA2 breast/ovarian variant table",
+  "data_file": "datasets\\BRCA\\Germline\\ClinVar\\derived\\clinvar_brca1_brca2_breast_ovarian_variant_labels.tsv",
+  "data_sha256": "3c0494424fcb3f66a0db026cf00293d5f3445fbeba6c7117ec650c81af7d58ab",
+  "model": "scikit-learn logistic regression with character n-gram variant/protein text, consequence text, and gene features",
+  "split": "single 80/20 GroupShuffleSplit; gene and GRCh38 locus are held together; fixed seed 20261029",
+  "features": [
+    "gene",
+    "variant",
+    "molecular_consequences",
+    "protein_change"
+  ],
+  "excluded_ambiguous_locus_rows": 83,
+  "rows_after_filtering": 2938,
+  "train_rows": 2357,
+  "holdout_rows": 581,
+  "train_groups": 2205,
+  "holdout_groups": 552,
+  "train_holdout_group_overlap": 0,
+  "train_class_counts_benign_then_pathogenic": [
+    1638,
+    719
+  ],
+  "holdout_class_counts_benign_then_pathogenic": [
+    394,
+    187
+  ],
+  "decision_threshold": 0.5,
+  "metrics": {
+    "accuracy": 0.9827882960413081,
+    "balanced_accuracy": 0.9802858383778061,
+    "pathogenic_precision": 0.9732620320855615,
+    "pathogenic_recall": 0.9732620320855615,
+    "roc_auc": 0.9948831401503841,
+    "average_precision": 0.9886147172560364,
+    "confusion_matrix_actual_rows_benign_pathogenic_predicted_columns_benign_pathogenic": [
+      [
+        389,
+        5
+      ],
+      [
+        5,
+        182
+      ]
+    ],
+    "classification_report": {
+      "benign_or_likely_benign": {
+        "precision": 0.9873096446700508,
+        "recall": 0.9873096446700508,
+        "f1-score": 0.9873096446700508,
+        "support": 394.0
+      },
+      "pathogenic_or_likely_pathogenic": {
+        "precision": 0.9732620320855615,
+        "recall": 0.9732620320855615,
+        "f1-score": 0.9732620320855615,
+        "support": 187.0
+      },
+      "accuracy": 0.9827882960413081,
+      "macro avg": {
+        "precision": 0.9802858383778061,
+        "recall": 0.9802858383778061,
+        "f1-score": 0.9802858383778061,
+        "support": 581.0
+      },
+      "weighted avg": {
+        "precision": 0.9827882960413081,
+        "recall": 0.9827882960413081,
+        "f1-score": 0.9827882960413081,
+        "support": 581.0
+      }
+    }
+  },
+  "limitations": [
+    "Labels and annotations come from the same public database; the holdout is not an independent clinical validation cohort.",
+    "Variant classification is not patient-level germline carrier detection or cancer-risk prediction.",
+    "Class balance and ClinVar curation patterns affect these internal metrics.",
+    "No probability calibration or clinical threshold selection was performed.",
+    "Research use only; do not use for screening, diagnosis, treatment, or patient care."
+  ]
+}

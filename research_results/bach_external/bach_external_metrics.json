@@ -1,0 +1,662 @@
+{
+  "scope": "research-only external dataset evaluation; not for diagnosis, clinical use, or clinical validation",
+  "dataset": "BACH / ICIAR 2018 Photos subset",
+  "n_images": 400,
+  "original_class_counts": {
+    "Benign": 100,
+    "InSitu": 100,
+    "Invasive": 100,
+    "Normal": 100
+  },
+  "binary_mapping": {
+    "non_carcinoma_label_0": [
+      "Benign",
+      "Normal"
+    ],
+    "carcinoma_label_1": [
+      "InSitu",
+      "Invasive"
+    ],
+    "note": "This is a study-specific grouping; original four-class labels are retained in predictions.csv."
+  },
+  "model": "Saved BreaKHis ResNet-18 checkpoints, evaluated without retraining",
+  "preprocessing": "Resize to checkpoint image size; RGB; ImageNet normalization; source files left unchanged",
+  "device": "cuda",
+  "cuda_device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "checkpoint_results": [
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold1_100x\\resnet18_fold1_100x.pt",
+      "fold": "fold1",
+      "training_magnification": "100X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          104,
+          96
+        ],
+        [
+          117,
+          83
+        ]
+      ],
+      "accuracy": 0.4675,
+      "carcinoma_sensitivity_recall": 0.415,
+      "non_carcinoma_specificity": 0.52,
+      "carcinoma_precision": 0.46368715083798884,
+      "balanced_accuracy": 0.4675
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold1_200x\\resnet18_fold1_200x.pt",
+      "fold": "fold1",
+      "training_magnification": "200X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          93,
+          107
+        ],
+        [
+          85,
+          115
+        ]
+      ],
+      "accuracy": 0.52,
+      "carcinoma_sensitivity_recall": 0.575,
+      "non_carcinoma_specificity": 0.465,
+      "carcinoma_precision": 0.5180180180180181,
+      "balanced_accuracy": 0.52
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold1_400x\\resnet18_fold1_400x.pt",
+      "fold": "fold1",
+      "training_magnification": "400X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          13,
+          187
+        ],
+        [
+          15,
+          185
+        ]
+      ],
+      "accuracy": 0.495,
+      "carcinoma_sensitivity_recall": 0.925,
+      "non_carcinoma_specificity": 0.065,
+      "carcinoma_precision": 0.49731182795698925,
+      "balanced_accuracy": 0.495
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold1_40x\\resnet18_fold1_40x.pt",
+      "fold": "fold1",
+      "training_magnification": "40X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          91,
+          109
+        ],
+        [
+          76,
+          124
+        ]
+      ],
+      "accuracy": 0.5375,
+      "carcinoma_sensitivity_recall": 0.62,
+      "non_carcinoma_specificity": 0.455,
+      "carcinoma_precision": 0.5321888412017167,
+      "balanced_accuracy": 0.5375
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold2_100x\\resnet18_fold2_100x.pt",
+      "fold": "fold2",
+      "training_magnification": "100X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          8,
+          192
+        ],
+        [
+          7,
+          193
+        ]
+      ],
+      "accuracy": 0.5025,
+      "carcinoma_sensitivity_recall": 0.965,
+      "non_carcinoma_specificity": 0.04,
+      "carcinoma_precision": 0.5012987012987012,
+      "balanced_accuracy": 0.5025
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold2_200x\\resnet18_fold2_200x.pt",
+      "fold": "fold2",
+      "training_magnification": "200X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          20,
+          180
+        ],
+        [
+          16,
+          184
+        ]
+      ],
+      "accuracy": 0.51,
+      "carcinoma_sensitivity_recall": 0.92,
+      "non_carcinoma_specificity": 0.1,
+      "carcinoma_precision": 0.5054945054945055,
+      "balanced_accuracy": 0.51
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold2_400x\\resnet18_fold2_400x.pt",
+      "fold": "fold2",
+      "training_magnification": "400X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          7,
+          193
+        ],
+        [
+          21,
+          179
+        ]
+      ],
+      "accuracy": 0.465,
+      "carcinoma_sensitivity_recall": 0.895,
+      "non_carcinoma_specificity": 0.035,
+      "carcinoma_precision": 0.48118279569892475,
+      "balanced_accuracy": 0.465
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold2_40x\\resnet18_fold2_40x.pt",
+      "fold": "fold2",
+      "training_magnification": "40X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          73,
+          127
+        ],
+        [
+          66,
+          134
+        ]
+      ],
+      "accuracy": 0.5175,
+      "carcinoma_sensitivity_recall": 0.67,
+      "non_carcinoma_specificity": 0.365,
+      "carcinoma_precision": 0.5134099616858238,
+      "balanced_accuracy": 0.5175000000000001
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold3_100x\\resnet18_fold3_100x.pt",
+      "fold": "fold3",
+      "training_magnification": "100X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          30,
+          170
+        ],
+        [
+          39,
+          161
+        ]
+      ],
+      "accuracy": 0.4775,
+      "carcinoma_sensitivity_recall": 0.805,
+      "non_carcinoma_specificity": 0.15,
+      "carcinoma_precision": 0.486404833836858,
+      "balanced_accuracy": 0.47750000000000004
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold3_200x\\resnet18_fold3_200x.pt",
+      "fold": "fold3",
+      "training_magnification": "200X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          16,
+          184
+        ],
+        [
+          14,
+          186
+        ]
+      ],
+      "accuracy": 0.505,
+      "carcinoma_sensitivity_recall": 0.93,
+      "non_carcinoma_specificity": 0.08,
+      "carcinoma_precision": 0.5027027027027027,
+      "balanced_accuracy": 0.505
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold3_400x\\resnet18_fold3_400x.pt",
+      "fold": "fold3",
+      "training_magnification": "400X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          15,
+          185
+        ],
+        [
+          21,
+          179
+        ]
+      ],
+      "accuracy": 0.485,
+      "carcinoma_sensitivity_recall": 0.895,
+      "non_carcinoma_specificity": 0.075,
+      "carcinoma_precision": 0.49175824175824173,
+      "balanced_accuracy": 0.485
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold3_40x\\resnet18_fold3_40x.pt",
+      "fold": "fold3",
+      "training_magnification": "40X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          37,
+          163
+        ],
+        [
+          58,
+          142
+        ]
+      ],
+      "accuracy": 0.4475,
+      "carcinoma_sensitivity_recall": 0.71,
+      "non_carcinoma_specificity": 0.185,
+      "carcinoma_precision": 0.46557377049180326,
+      "balanced_accuracy": 0.4475
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold4_100x\\resnet18_fold4_100x.pt",
+      "fold": "fold4",
+      "training_magnification": "100X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          13,
+          187
+        ],
+        [
+          14,
+          186
+        ]
+      ],
+      "accuracy": 0.4975,
+      "carcinoma_sensitivity_recall": 0.93,
+      "non_carcinoma_specificity": 0.065,
+      "carcinoma_precision": 0.49865951742627346,
+      "balanced_accuracy": 0.49750000000000005
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold4_200x\\resnet18_fold4_200x.pt",
+      "fold": "fold4",
+      "training_magnification": "200X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          40,
+          160
+        ],
+        [
+          32,
+          168
+        ]
+      ],
+      "accuracy": 0.52,
+      "carcinoma_sensitivity_recall": 0.84,
+      "non_carcinoma_specificity": 0.2,
+      "carcinoma_precision": 0.5121951219512195,
+      "balanced_accuracy": 0.52
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold4_400x\\resnet18_fold4_400x.pt",
+      "fold": "fold4",
+      "training_magnification": "400X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          50,
+          150
+        ],
+        [
+          62,
+          138
+        ]
+      ],
+      "accuracy": 0.47,
+      "carcinoma_sensitivity_recall": 0.69,
+      "non_carcinoma_specificity": 0.25,
+      "carcinoma_precision": 0.4791666666666667,
+      "balanced_accuracy": 0.47
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold4_40x\\resnet18_fold4_40x.pt",
+      "fold": "fold4",
+      "training_magnification": "40X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          86,
+          114
+        ],
+        [
+          83,
+          117
+        ]
+      ],
+      "accuracy": 0.5075,
+      "carcinoma_sensitivity_recall": 0.585,
+      "non_carcinoma_specificity": 0.43,
+      "carcinoma_precision": 0.5064935064935064,
+      "balanced_accuracy": 0.5075
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold5_100x\\resnet18_fold5_100x.pt",
+      "fold": "fold5",
+      "training_magnification": "100X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          32,
+          168
+        ],
+        [
+          27,
+          173
+        ]
+      ],
+      "accuracy": 0.5125,
+      "carcinoma_sensitivity_recall": 0.865,
+      "non_carcinoma_specificity": 0.16,
+      "carcinoma_precision": 0.5073313782991202,
+      "balanced_accuracy": 0.5125
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold5_200x\\resnet18_fold5_200x.pt",
+      "fold": "fold5",
+      "training_magnification": "200X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          76,
+          124
+        ],
+        [
+          56,
+          144
+        ]
+      ],
+      "accuracy": 0.55,
+      "carcinoma_sensitivity_recall": 0.72,
+      "non_carcinoma_specificity": 0.38,
+      "carcinoma_precision": 0.5373134328358209,
+      "balanced_accuracy": 0.55
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold5_400x\\resnet18_fold5_400x.pt",
+      "fold": "fold5",
+      "training_magnification": "400X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          41,
+          159
+        ],
+        [
+          24,
+          176
+        ]
+      ],
+      "accuracy": 0.5425,
+      "carcinoma_sensitivity_recall": 0.88,
+      "non_carcinoma_specificity": 0.205,
+      "carcinoma_precision": 0.5253731343283582,
+      "balanced_accuracy": 0.5425
+    },
+    {
+      "checkpoint": "C:\\Users\\ayush\\Downloads\\BreaKHis\\resnet18_results\\fold5_40x\\resnet18_fold5_40x.pt",
+      "fold": "fold5",
+      "training_magnification": "40X",
+      "image_size": 128,
+      "n_images": 400,
+      "original_class_counts": {
+        "Benign": 100,
+        "InSitu": 100,
+        "Invasive": 100,
+        "Normal": 100
+      },
+      "confusion_matrix_actual_rows_predicted_columns": [
+        [
+          16,
+          184
+        ],
+        [
+          16,
+          184
+        ]
+      ],
+      "accuracy": 0.5,
+      "carcinoma_sensitivity_recall": 0.92,
+      "non_carcinoma_specificity": 0.08,
+      "carcinoma_precision": 0.5,
+      "balanced_accuracy": 0.5
+    }
+  ],
+  "magnification_summary": {
+    "40X": {
+      "fold_model_count": 5,
+      "metrics_mean_across_fold_models": {
+        "accuracy": 0.502,
+        "carcinoma_sensitivity_recall": 0.701,
+        "non_carcinoma_specificity": 0.303,
+        "carcinoma_precision": 0.50353321597457,
+        "balanced_accuracy": 0.502
+      },
+      "metrics_std_across_fold_models_population": {
+        "accuracy": 0.030016662039607254,
+        "carcinoma_sensitivity_recall": 0.11749042514179615,
+        "non_carcinoma_specificity": 0.146102703602637,
+        "carcinoma_precision": 0.021821372089958317,
+        "balanced_accuracy": 0.030016662039607265
+      },
+      "note": "Fold-model spread is descriptive variability across saved models, not a patient-level confidence interval."
+    },
+    "100X": {
+      "fold_model_count": 5,
+      "metrics_mean_across_fold_models": {
+        "accuracy": 0.4915,
+        "carcinoma_sensitivity_recall": 0.796,
+        "non_carcinoma_specificity": 0.187,
+        "carcinoma_precision": 0.49147631633978833,
+        "balanced_accuracy": 0.4915
+      },
+      "metrics_std_across_fold_models_population": {
+        "accuracy": 0.016552945357246825,
+        "carcinoma_sensitivity_recall": 0.19825236442474023,
+        "non_carcinoma_specificity": 0.1729045979724079,
+        "carcinoma_precision": 0.015475259402854252,
+        "balanced_accuracy": 0.016552945357246822
+      },
+      "note": "Fold-model spread is descriptive variability across saved models, not a patient-level confidence interval."
+    },
+    "200X": {
+      "fold_model_count": 5,
+      "metrics_mean_across_fold_models": {
+        "accuracy": 0.521,
+        "carcinoma_sensitivity_recall": 0.797,
+        "non_carcinoma_specificity": 0.245,
+        "carcinoma_precision": 0.5151447562004533,
+        "balanced_accuracy": 0.521
+      },
+      "metrics_std_across_fold_models_population": {
+        "accuracy": 0.015620499351813323,
+        "carcinoma_sensitivity_recall": 0.13407460609675498,
+        "non_carcinoma_specificity": 0.1529051993883792,
+        "carcinoma_precision": 0.012299091294632759,
+        "balanced_accuracy": 0.015620499351813323
+      },
+      "note": "Fold-model spread is descriptive variability across saved models, not a patient-level confidence interval."
+    },
+    "400X": {
+      "fold_model_count": 5,
+      "metrics_mean_across_fold_models": {
+        "accuracy": 0.4915,
+        "carcinoma_sensitivity_recall": 0.857,
+        "non_carcinoma_specificity": 0.126,
+        "carcinoma_precision": 0.49495853328183614,
+        "balanced_accuracy": 0.4915
+      },
+      "metrics_std_across_fold_models_population": {
+        "accuracy": 0.0276405499221705,
+        "carcinoma_sensitivity_recall": 0.084770277810091,
+        "non_carcinoma_specificity": 0.08511169132381285,
+        "carcinoma_precision": 0.016613138268417173,
+        "balanced_accuracy": 0.0276405499221705
+      },
+      "note": "Fold-model spread is descriptive variability across saved models, not a patient-level confidence interval."
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "project": "BreastCare AI",
+  "dataset": "BreaKHis",
+  "scope": "local research artifacts",
+  "resnet18_checkpoint_count": 20,
+  "baseline_checkpoint_count": 5,
+  "total_bytes": 897444825.0,
+  "runtime_validation": "CPU-only Anaconda runtime passed a generated-image API worker smoke test; all 20 ResNet-18 state dictionaries loaded strictly. The separate CUDA Python environment remains blocked on c10.dll by Windows Application Control. PyTorch was not changed.",
+  "redistribution": "Not cleared for source-archive redistribution; verify applicable dataset-derived model terms before sharing.",
+  "files": [
+    {
+      "file": "resnet18/fold1_100x/resnet18_fold1_100x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold1",
+      "magnification": "100X",
+      "bytes": 44789515,
+      "sha256": "E951AAB0E8D754AF7C87FF58379B66E05CAD06BECC3A628825A415287AED3A45",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold1_200x/resnet18_fold1_200x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold1",
+      "magnification": "200X",
+      "bytes": 44789515,
+      "sha256": "52F2A21DB1187ECBC9A83A9A7546C11FA10DB38D94A84D8122AE41C635169A28",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold1_400x/resnet18_fold1_400x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold1",
+      "magnification": "400X",
+      "bytes": 44789515,
+      "sha256": "BB28AA2D7B864A9A0E37A03A87E9B5CBA71EFBA1D89DEE87CF170CECEEACB83B",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold1_40x/resnet18_fold1_40x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold1",
+      "magnification": "40X",
+      "bytes": 44789387,
+      "sha256": "F80CDD1D95749A070C6D546863ABBFA55FC0027CB5CF9923FC9DDA9747A70341",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold2_100x/resnet18_fold2_100x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold2",
+      "magnification": "100X",
+      "bytes": 44789515,
+      "sha256": "31BC136439D0B80A9B819222A216C77308217AC3FBAF6E5C31A5CF3B02CFD920",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold2_200x/resnet18_fold2_200x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold2",
+      "magnification": "200X",
+      "bytes": 44789515,
+      "sha256": "28DA4B2274FECA27E770DEDFCD8AA93266125BC89ED71A608ABC4C76A9C816F9",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold2_400x/resnet18_fold2_400x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold2",
+      "magnification": "400X",
+      "bytes": 44789515,
+      "sha256": "BC6745C989CF4BEA9D69C572B423C11A1C7BDE056DACE7DB8D64512FAE2CF5B5",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold2_40x/resnet18_fold2_40x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold2",
+      "magnification": "40X",
+      "bytes": 44789387,
+      "sha256": "66C1332B9164C5366803F5C96D2AEFE1C277DAD16D216282AA72C49CF8EA71DB",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold3_100x/resnet18_fold3_100x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold3",
+      "magnification": "100X",
+      "bytes": 44789515,
+      "sha256": "CDFD7331DE0851AD466D9294D00A97FC8B328BC19CBD9D558B411594487172EE",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold3_200x/resnet18_fold3_200x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold3",
+      "magnification": "200X",
+      "bytes": 44789515,
+      "sha256": "1CA0102C0B872169764796653D28DF07181876AEDDD66C7B3017B7D95AA69CC3",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold3_400x/resnet18_fold3_400x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold3",
+      "magnification": "400X",
+      "bytes": 44789515,
+      "sha256": "A83B237D0B3B874BF610DAB86E323A80132A5967489C3C29E3F2641CFE9A819E",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold3_40x/resnet18_fold3_40x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold3",
+      "magnification": "40X",
+      "bytes": 44789387,
+      "sha256": "BDF85A423A32F70A240746325D206F191D2EF77034E375B5C0DE22366A392E05",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold4_100x/resnet18_fold4_100x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold4",
+      "magnification": "100X",
+      "bytes": 44789515,
+      "sha256": "3F4AA027790ADA8606C2FB37B2A30B57A2337D63D2A80DF18902A279D49E2341",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold4_200x/resnet18_fold4_200x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold4",
+      "magnification": "200X",
+      "bytes": 44789515,
+      "sha256": "DAE41FCB128D776FFAF8F3DAF0665CD67F4B234C26420E004C2BFC914925D0B7",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold4_400x/resnet18_fold4_400x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold4",
+      "magnification": "400X",
+      "bytes": 44789515,
+      "sha256": "370233426D9CA32CC9D062B48DADE5269CE58CFB5DC3C09018D85D37DD8F22AF",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold4_40x/resnet18_fold4_40x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold4",
+      "magnification": "40X",
+      "bytes": 44789387,
+      "sha256": "90065881B8E9A9C08200F7983BC4FE6B4C614882932B467F4C986F4A02D768CD",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold5_100x/resnet18_fold5_100x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold5",
+      "magnification": "100X",
+      "bytes": 44789515,
+      "sha256": "F772CDEFA677B5199580E06B07F823025587011ED9EFD954DCA68AF8F9E77668",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold5_200x/resnet18_fold5_200x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold5",
+      "magnification": "200X",
+      "bytes": 44789515,
+      "sha256": "EB713060340F2AA507B659BAF11898CD758ADB628BA0FB1BE2ECC0408BE2915E",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold5_400x/resnet18_fold5_400x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold5",
+      "magnification": "400X",
+      "bytes": 44789515,
+      "sha256": "C87B256970EA2DAF0EBEED884B529BB5B29AB0B2FDB3DB14D9A72BC92CFCCC12",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "resnet18/fold5_40x/resnet18_fold5_40x.pt",
+      "architecture": "ResNet-18",
+      "fold": "fold5",
+      "magnification": "40X",
+      "bytes": 44789387,
+      "sha256": "AAE6711D7787BAF3F63B637F834B60D4B0DAD1329295FE3B2C805A7AC067B3CC",
+      "optional_inference_worker_compatible": true
+    },
+    {
+      "file": "baseline/fold1_40x/breakhis_fold1_40x_baseline.pt",
+      "architecture": "scratch CNN baseline",
+      "fold": "fold1",
+      "magnification": "40X",
+      "bytes": 331033,
+      "sha256": "CAF2BD7E796C354E47C6BAD40A2A81E7D148F79EDDFFF49C457C350EF9ED67B2",
+      "optional_inference_worker_compatible": false
+    },
+    {
+      "file": "baseline/fold2_40x/breakhis_fold2_40x_baseline.pt",
+      "architecture": "scratch CNN baseline",
+      "fold": "fold2",
+      "magnification": "40X",
+      "bytes": 331033,
+      "sha256": "BE04BC3C15CF029A3EEA9F0B7FE85029D22052A5E032DA60B09B09D96CB69EB9",
+      "optional_inference_worker_compatible": false
+    },
+    {
+      "file": "baseline/fold3_40x/breakhis_fold3_40x_baseline.pt",
+      "architecture": "scratch CNN baseline",
+      "fold": "fold3",
+      "magnification": "40X",
+      "bytes": 331033,
+      "sha256": "4852D39189C326AE2B0C51FA62EA1218398FDFECACB462B72125F1A4D987E653",
+      "optional_inference_worker_compatible": false
+    },
+    {
+      "file": "baseline/fold4_40x/breakhis_fold4_40x_baseline.pt",
+      "architecture": "scratch CNN baseline",
+      "fold": "fold4",
+      "magnification": "40X",
+      "bytes": 331033,
+      "sha256": "16DD6AD53434B8F5847B1DC9360EF757106D7CA566323D8E762469B29D37096F",
+      "optional_inference_worker_compatible": false
+    },
+    {
+      "file": "baseline/fold5_40x/breakhis_fold5_40x_baseline.pt",
+      "architecture": "scratch CNN baseline",
+      "fold": "fold5",
+      "magnification": "40X",
+      "bytes": 331033,
+      "sha256": "CCB51D2186061CA1DE6F52CAFF28E6611E0122BC309792F9A7E1EF92855877F1",
+      "optional_inference_worker_compatible": false
+    }
+  ]
+}

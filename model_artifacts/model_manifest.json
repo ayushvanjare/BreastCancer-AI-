@@ -1,0 +1,36 @@
+{
+  "project": "BreastCare AI",
+  "phase": "research-prototype",
+  "models": [
+    {
+      "id": "breakhis-resnet18-binary",
+      "purpose": "Optional research-only binary histopathology experiment",
+      "architecture": "ResNet-18 ImageNet pretrained",
+      "checkpoint_bundled": true,
+      "checkpoint_count": 20,
+      "checkpoint_paths": "breakhis/resnet18/fold{1-5}_{40x|100x|200x|400x}/resnet18_fold{n}_{magnification}.pt",
+      "configuration": "RESEARCH_MODEL_PYTHON in backend/.env; HISTOPATHOLOGY_CHECKPOINT is an optional fallback",
+      "training_data": "BreaKHis; five folds, four magnifications",
+      "external_evaluation": "BACH Photos; 400 images; near-chance accuracy with poor non-carcinoma specificity",
+      "runtime_verified": true,
+      "runtime_note": "All 20 state dictionaries loaded strictly into the expected ResNet-18 architecture. The API worker passed a generated-image CPU smoke test using the existing Anaconda CPU-only PyTorch 2.13.0+cpu environment. The separate CUDA Python environment remains blocked by Windows Application Control on c10.dll; no PyTorch installation was changed.",
+      "clinical_validation": false,
+      "clinical_use": false
+    },
+    {
+      "id": "breakhis-scratch-cnn-40x-baseline",
+      "purpose": "Optional research-only binary histopathology baseline",
+      "architecture": "Scratch CNN",
+      "checkpoint_bundled": true,
+      "checkpoint_count": 5,
+      "checkpoint_paths": "breakhis/baseline/fold{1-5}_40x/*.pt",
+      "configuration": "Selectable in the Histopathology workflow when RESEARCH_MODEL_PYTHON is configured",
+      "runtime_verified": true,
+      "runtime_note": "All five checkpoints completed generated-image CPU smoke checks through the research inference worker. This does not measure model accuracy or clinical validity.",
+      "clinical_validation": false,
+      "clinical_use": false
+    }
+  ],
+  "unavailable_modalities": ["CT", "MRI", "X-ray", "mammography", "BRCA mutation prediction"],
+  "policy": "The local project includes 20 BreaKHis ResNet-18 and five scratch-CNN research checkpoints. Both workers passed generated-image CPU smoke checks in the existing local runtime. This does not demonstrate accuracy, clinical validity, or readiness for patient care. No CT, MRI, X-ray, mammography, or BRCA prediction models are included. Checkpoint redistribution is not cleared for source archives until all dataset-derived model terms are reviewed. This project is not for diagnosis or clinical use."
+}

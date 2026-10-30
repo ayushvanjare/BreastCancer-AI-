@@ -1,0 +1,14 @@
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30,<1.0
+sqlalchemy>=2.0,<3.0
+pydantic-settings>=2.4,<3.0
+python-multipart>=0.0.9
+itsdangerous>=2.2,<3.0
+email-validator>=2.2,<3.0
+pandas>=2.2,<3.0
+PyMuPDF>=1.24,<2.0
+Pillow>=10.4,<13.0
+pytesseract>=0.3.13,<1.0
+pydicom>=3.0,<4.0
+nibabel>=5.3,<6.0
+cryptography>=43,<47

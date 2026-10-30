@@ -1,0 +1,17 @@
+.venv/
+backend/.venv_recovered/
+venv/
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.db
+*.sqlite3
+backend/.history.key
+.env
+.DS_Store
+uploads/
+model_artifacts/*.pt
+model_artifacts/*.pth
+model_artifacts/*.onnx

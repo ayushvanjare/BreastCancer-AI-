@@ -1,0 +1,33 @@
+{
+  "downloaded_utc": "2026-10-29T00:13:33.267535+05:30",
+  "source": "NCBI ClinVar via E-utilities esearch/esummary",
+  "query_genes": [
+    "BRCA1",
+    "BRCA2"
+  ],
+  "requested_classifications": [
+    "Pathogenic",
+    "Likely pathogenic",
+    "Benign",
+    "Likely benign"
+  ],
+  "review_status_filter": "criteria provided, multiple submitters, no conflicts",
+  "counts_by_query": {
+    "BRCA1:Pathogenic": 2223,
+    "BRCA1:Likely pathogenic": 316,
+    "BRCA1:Benign": 1497,
+    "BRCA1:Likely benign": 1459,
+    "BRCA2:Pathogenic": 3843,
+    "BRCA2:Likely pathogenic": 442,
+    "BRCA2:Benign": 2592,
+    "BRCA2:Likely benign": 2535
+  },
+  "unique_records_retrieved": 6319,
+  "records_exported_after_gene_classification_review_status_and_breast_ovarian_condition_filters": 3021,
+  "data_level": "variant-level aggregate interpretations; no patient-level genotype or carrier labels",
+  "intended_use": "research and dataset exploration only; not a clinical prediction model or clinical validation",
+  "source_docs": [
+    "https://www.ncbi.nlm.nih.gov/clinvar/docs/downloads/",
+    "https://www.ncbi.nlm.nih.gov/clinvar/docs/ftp_primer/"
+  ]
+}
