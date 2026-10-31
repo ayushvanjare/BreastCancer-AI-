@@ -190,7 +190,7 @@ run_unix.sh
 
 ## Output of the current project.
 ### Researcher Dashboard
-![BreastCare AI researcher dashboard](docs/screenshot/dashboard.png)
+![BreastCare AI researcher dashboard](docs/screenshot/Dashboard.png)
 
 ### Histopathology Research Workflow
 ![Histopathology model selection and image upload screen](docs/screenshot/Upload_Screen.png)
