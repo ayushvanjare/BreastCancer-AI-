@@ -190,19 +190,19 @@ run_unix.sh
 
 ## Output of the current project.
 ### Researcher Dashboard
-![BreastCare AI researcher dashboard](docs/screenshots/dashboard.png)
+![BreastCare AI researcher dashboard](docs/screenshot/dashboard.png)
 
 ### Histopathology Research Workflow
-![Histopathology model selection and image upload screen](docs/screenshots/histopathology-workflow.png)
+![Histopathology model selection and image upload screen](docs/screenshot/Upload_Screen.png)
 
 ### Experiment Results
-![Histopathology experiment results and evaluation metrics](docs/screenshots/experiment-results.png)
+![Histopathology experiment results and evaluation metrics](docs/screenshot/Experiment_Results.png)
 
 ### Model Registry
-![Model registry and model readiness information](docs/screenshots/model-registry.png)
+![Model registry and model readiness information](docs/screenshot/Model_Registry.png)
 
 ### Analysis History
-![Account-scoped analysis history](docs/screenshots/analysis-history.png)
+![Account-scoped analysis history](docs/screenshot/Analysis_History.png)
 
 ## Development status and next steps
 
