@@ -1,179 +1,199 @@
-# BreastCare AI — Research Prototype
+# BreastCare AI
 
-A local-first research prototype combining tabular exploration, report text extraction, imaging input review, and an optional BreaKHis histopathology research experiment.
+BreastCare AI is a local-first research application for exploring breast-cancer research data workflows. It provides a web dashboard, account registration and sign-in, a catalogue of seven research modules, and limited file preflight tools for selected inputs.
 
-## Included in this Phase 2.2 release
-- React + TypeScript + Vite responsive dashboard (white, navy, teal)
-- Seven dedicated module entry pages: histopathology, CT, MRI, X-ray/mammography, BRCA genomics readiness, doctor reports, CSV
-- Python FastAPI backend with health, module metadata, registration, login, and demo analysis endpoints
-- SQLite by default for easy local setup; database file is created on first startup
-- Password hashing using Python's standard-library PBKDF2-HMAC and signed bearer tokens
-- Account-protected uploads with encrypted local history for source files and analysis results
-- Docker Compose option
-- Windows, PowerShell, and Linux/macOS launch scripts
-- Basic automated backend tests and a model manifest
-- CSV upload (50 MB maximum) with shape, column types, missingness, numeric descriptive statistics and chart-ready category counts
-- BRCA cohort preflight (50 MB maximum) for a de-identified CSV; checks schema and aggregate labels in memory without retaining rows or predicting mutation status
-- Doctor report text extraction from digital/scanned PDFs and images (25 MB maximum; OCR for scans)
-- Five-fold BreaKHis experiment results plus BACH external research evaluation
-- 20 local BreaKHis ResNet-18 fold/magnification checkpoints and five scratch-CNN baseline checkpoints; the app can select all 25 checkpoints when a compatible existing PyTorch environment is configured
-- Single-file CT/MRI/X-ray metadata review for raster images or DICOM headers; this is not image inference
-- No internet connection required after dependencies have been installed
+## Project overview
 
-## Important medical AI limitations
-This is a research software prototype, not a clinically validated diagnostic product. This local copy includes 20 BreaKHis ResNet-18 checkpoints and five historical scratch-CNN checkpoints. A generated-image API smoke test passed on the existing CPU-only Anaconda PyTorch environment; the separate CUDA Python environment remains blocked by Windows Application Control on `c10.dll`. No CT, MRI, mammography/X-ray, or patient-level BRCA risk models are included. A separate offline ClinVar variant-annotation research model is available; it is not integrated into the app. The ResNet-18 workflow had near-chance accuracy and poor specificity on the separate BACH evaluation; its output is not a diagnosis. Dataset-derived checkpoint redistribution is not cleared for the submission ZIP until the applicable terms have been reviewed. CT, MRI, and radiology workflows inspect basic file metadata only. CSV analysis returns descriptive statistics only. Doctor report processing extracts text only; OCR may misread content and does not summarize or interpret it. Do not use this software for clinical decisions.
+BreastCare AI is a student research project that provides one local workspace for several breast-cancer data tasks. A researcher can open the dashboard, browse the available modules, choose a workflow, and submit an eligible file after signing in. The backend checks the request and returns a result or a clear message explaining why the current project cannot process it.
 
-The proposed data requirements and gated next steps for MRI, CT, and BRCA genomics are in [MODEL_DEVELOPMENT_ROADMAP.md](MODEL_DEVELOPMENT_ROADMAP.md). Mammography is paused at the user's direction; its local pilot has too few verified image pairs for training.
+The project catalogue covers seven areas: CSV analysis, doctor report text extraction, histopathology, CT, MRI, X-ray and mammography, and BRCA cohort data checks. The modules do not all have the same level of implementation. In this repository, CT and MRI support limited DICOM-header inspection, and BRCA supports an in-memory preflight of a de-identified cohort CSV. The remaining module pages describe planned workflows, but their full processing pipelines or prediction models are not included here. Analysis History is not an eighth processing module.
+
+The main goal is to provide a clear foundation for research data handling, with separate workflows for different input types and visible information about each workflow’s status. The application does not claim to diagnose breast cancer or estimate an individual’s genetic risk. It is intended for local research and learning, not clinical use.
+
+> **Research prototype only.** This project is not a clinically validated medical device. It does not provide diagnosis, treatment advice, or individual genetic-risk predictions. Do not use it to make decisions about patient care.
+
+## Project status
+
+The current repository is an early software foundation. The dashboard and module pages are present, but not every module has a working analysis pipeline. The available functions are deliberately described below so that the interface is not mistaken for a set of trained prediction models.
+
+| Module | Current capability |
+|---|---|
+| Histopathology | Interface is present. A compatible research model and processing pipeline are not included in this repository. |
+| CT | Authenticated, in-memory inspection of one DICOM header. It does not read image pixels or predict cancer. |
+| MRI | Authenticated, in-memory inspection of one DICOM header. It does not inspect MRI sequences or image pixels. |
+| X-ray and mammography | Interface is present. No radiology prediction model is included. |
+| BRCA genomics | Authenticated, in-memory preflight of a de-identified cohort CSV. It returns aggregate structure and label checks; it does not interpret variants or predict mutation status. |
+| Doctor reports | Interface is present. Text extraction/OCR processing is not implemented in this repository. |
+| CSV analysis | Interface is present. The planned general analysis pipeline is not implemented in this repository. |
+
+The module catalogue describes intended workflows and their readiness. A module card or planned feature does not mean that a model is installed or that analysis is available.
+
+## Features
+
+- React, TypeScript, and Vite web interface.
+- FastAPI backend with a health endpoint and module catalogue.
+- Account registration and sign-in with password hashing and bearer-token authentication.
+- SQLite database by default; it is created on first backend startup.
+- CT and MRI DICOM header inspection, with a 20 MB per-file limit.
+- BRCA cohort CSV preflight, with a 10 MB limit and in-memory processing.
+- Docker Compose configuration.
+- Windows PowerShell, Windows batch, and Linux/macOS launch scripts.
+- Local development after dependencies have been installed.
+
+## Technology
+
+- **Frontend:** React, TypeScript, Vite, React Router
+- **Backend:** Python, FastAPI, SQLAlchemy
+- **Database:** SQLite by default
+- **Medical image header support:** `pydicom`
+- **Container option:** Docker Compose
 
 ## Requirements
-- Python 3.11, 3.12, or 3.13 recommended
-- Node.js 20 LTS or newer (npm included)
-- Optional: Docker Desktop / Docker Engine with Compose
+
+- Python 3.11 or 3.12
+- Node.js 20 LTS or newer, including npm
+- Optional: Docker Desktop or Docker Engine with Compose
 - Optional: Git
-- Tesseract OCR installed and available on `PATH` for scanned PDFs and image reports (digital PDFs can be read without Tesseract)
 
-The dashboard, CSV, reports, and metadata review do not require a GPU. Optional histopathology inference uses a separate configured Python environment with PyTorch, torchvision, and Pillow; the project never installs or pins PyTorch.
+The CT/MRI header check requires the backend dependencies, including `pydicom`. No GPU is needed for the current implemented functions. This repository does not include trained medical model weights or patient datasets.
 
-## Run on Windows (recommended)
-1. Extract the ZIP to a normal writable folder.
-2. Open PowerShell in the extracted `BreastCare_AI_Phase2_2` folder.
-3. Run the included launch script:
+## Run on Windows
+
+1. Download or clone this repository into a writable folder.
+2. Open PowerShell in the project folder.
+3. Start the local application:
+
    ```powershell
    .\run_windows.ps1
    ```
-   If PowerShell policy blocks scripts, use Command Prompt:
+
+   If PowerShell does not allow the script to run, use Command Prompt:
+
    ```bat
    run_windows.bat
    ```
-   The first run creates the backend environment and installs Python and npm dependencies. Later runs reuse them. To refresh dependencies deliberately, run `.\run_windows.ps1 -InstallDependencies` in PowerShell or `run_windows.bat --install-dependencies` in Command Prompt.
-4. Open the frontend at `http://localhost:5173`.
-5. Backend API docs: `http://127.0.0.1:8000/docs`.
 
-The launcher opens one window for the API and one for the frontend. Stop the app by pressing **Ctrl+C** in both windows or closing both windows. If the launcher reports that port 8000 or 5173 is busy, close any existing BreastCare AI server windows before starting it again.
+4. Open the frontend at [http://localhost:5173](http://localhost:5173).
+5. Open the backend API documentation at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
-The first setup requires internet access to install Python and npm dependencies. After installation, the dashboard and API run locally. The scripts do not install or pin PyTorch or download additional model weights. To preserve an existing CUDA-enabled PyTorch installation, use its existing environment and install only the backend requirements if necessary; these requirements do not list PyTorch. The included checkpoint files are documented in `model_artifacts/checkpoint_manifest.json`; the CPU inference worker passed a generated-image smoke test in this local setup, while CUDA remains unavailable in the selected runtime.
+The launcher creates a backend virtual environment and installs the backend and frontend dependencies when needed. It starts the backend and frontend in separate terminal windows. If either port is already in use, close the existing process before starting another copy.
 
-## Run manually
-### Backend
+## Run on macOS or Linux
+
+From the project folder, run:
+
 ```bash
+chmod +x run_unix.sh
+./run_unix.sh
+```
+
+Then open [http://localhost:5173](http://localhost:5173) in a browser. The backend API documentation is available at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+
+## Run with Docker Compose
+
+From the project folder, run:
+
+```bash
+docker compose up --build
+```
+
+Open [http://localhost:5173](http://localhost:5173). The backend API is available on port `8000`. Docker Compose stores the SQLite database in a named volume. Before using this configuration beyond local development, replace the example application secret with a strong private value and review the network exposure settings.
+
+## Manual development setup
+
+### Backend
+
+From the project folder:
+
+```powershell
 cd backend
 python -m venv .venv
-# Windows PowerShell: .\.venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
+```
+
+Activate the environment in PowerShell and install dependencies:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
+On macOS or Linux, activate it with `source .venv/bin/activate` instead. The backend listens locally on port `8000`.
+
 ### Frontend
-In a second terminal:
+
+In another terminal, from the project folder:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-## Environment configuration
-Copy `backend/.env.example` to `backend/.env` if you want to customize settings. A random development secret is generated when `APP_SECRET_KEY` is not supplied; set a stable, strong secret for any shared deployment. Never expose this development server directly to the public internet.
+The Vite development server uses port `5173` by default.
 
-### Saved upload privacy
-Analysis uploads require a signed-in account. Original files and result data are encrypted in the local SQLite database and account-scoped. The History page renders saved summaries as readable tables/cards and previews saved images, PDFs, and CSV samples; use Download original to retrieve the complete source file. A local Fernet key is created at `backend/.history.key` on first save and excluded from Git and source ZIPs. Keep this key private and back it up separately if history must remain readable after moving the database; losing the key makes existing encrypted history unreadable. Delete records from the History page when no longer needed. This local prototype is not a secure clinical-record system: use authorized, de-identified research data only, never identifiable patient files, and do not expose the app publicly.
+## Implemented API endpoints
 
-## API endpoints
-- `GET /api/health` — status and configured database
-- `GET /api/modules` — seven module descriptions and readiness
-- `POST /api/auth/register` — `{ "email": "...", "username": "...", "password": "..." }`
-- `POST /api/auth/login` — form-encoded `username` (email or username) and `password`
-- `GET /api/auth/me` — current user (Bearer token)
-- `POST /api/analysis` — authenticated readiness endpoint; it does not fabricate predictions
-- `POST /api/csv/analyze` — multipart field `file`; requires a bearer token, accepts CSV files up to 50 MB, returns descriptive summaries, and saves the upload and result encrypted in account history.
-- `POST /api/reports/extract` — multipart field `file`; requires a bearer token, accepts PDF/image reports up to 25 MB, returns extracted text, and saves the upload and result encrypted in account history. Scanned PDFs are limited to 20 pages.
-- `POST /api/research/brca/preflight` — multipart field `file`; authenticated schema and aggregate-label check for a de-identified CSV with `sample_id`, `target_type`, and `label`; raw rows are not retained and prediction is not performed.
-- `GET /api/history` — list the signed-in user's saved analysis records
-- `GET /api/history/{id}` — view a saved result belonging to the signed-in user
-- `GET /api/history/{id}/file` — download the original upload belonging to the signed-in user
-- `DELETE /api/history/{id}` — delete the result and original upload belonging to the signed-in user
-- `POST /api/imaging/inspect` — multipart fields `module_id` and `file`; inspects one raster or DICOM header up to 50 MB, or one NIfTI header up to 500 MB. No image inference or patient identifiers are returned.
-- `POST /api/imaging/series/inspect` — multipart fields `module_id` and repeated `files`; checks one DICOM series (up to 500 instances, 250 MB total) for modality, image dimensions, and repeated slice positions. Pixel data is not read; encrypted originals are kept together as a ZIP history item.
-- `POST /api/research/histopathology/predict` — multipart fields `file`, `checkpoint_id` (from `/api/modules`), and optional `explain`; local BreaKHis ResNet-18 or scratch-CNN scores, with Grad-CAM for ResNet-18, explicitly research-only. Requires the separate model configuration below.
-- `GET /docs` — interactive API documentation
+| Method | Endpoint | Purpose | Access |
+|---|---|---|---|
+| `GET` | `/api/health` | Reports backend status and database configuration. | Public |
+| `GET` | `/api/modules` | Returns the module catalogue and readiness information. | Public |
+| `POST` | `/api/auth/register` | Creates a user account. | Public |
+| `POST` | `/api/auth/login` | Signs in with a username or email and password. | Public |
+| `GET` | `/api/auth/me` | Returns the current account. | Bearer token required |
+| `POST` | `/api/research/{ct\|mri}/inspect` | Checks one DICOM header in memory; limited to 20 MB. | Bearer token required |
+| `POST` | `/api/research/brca/preflight` | Checks a de-identified cohort CSV in memory; limited to 10 MB. | Bearer token required |
+| `POST` | `/api/analysis` | Reports that a compatible analysis pipeline/model is unavailable. | Bearer token required |
 
-## Git repository
-This folder includes `.gitignore` and an initial Git setup helper. To create a repository:
-```bash
-git init
-git add .
-git commit -m "Initial BreastCare AI Phase 1 foundation"
+The CT/MRI endpoint accepts one `.dcm` or `.dicom` file. It checks header information and excludes pixel data and identifying tags from its response. The BRCA CSV preflight requires the columns `sample_id`, `target_type`, and `label`; it returns aggregate checks and does not save raw rows.
+
+## Configuration
+
+Backend settings can be customized with environment variables or a `backend/.env` file. An example is provided at `backend/.env.example`.
+
+Important settings include:
+
+- `APP_SECRET_KEY` — signing secret for access tokens. Use a long, random private value for any shared environment; do not commit it.
+- `DATABASE_URL` — database connection string. SQLite is used by default.
+- `TOKEN_TTL_HOURS` — access-token lifetime.
+- `FRONTEND_ORIGIN` — allowed frontend origin for local development.
+
+Never expose the development server directly to the public internet. The default configuration is intended for local development only.
+
+## Data and model files
+
+No clinical datasets are bundled. Only use data you are authorized to access and process. De-identify research data before upload and do not include direct patient identifiers.
+
+No trained CT, MRI, mammography, or BRCA prediction models are included. Histopathology inference is not available unless a compatible model and processing pipeline are separately configured. Do not commit private datasets, credentials, local environment files, or large/restricted model weights to Git. See [`datasets/README.md`](datasets/README.md) and [`model_artifacts/README.md`](model_artifacts/README.md) for the project’s data and model guidance.
+
+## Repository structure
+
+```text
+backend/          FastAPI application and Python dependencies
+frontend/         React + TypeScript application
+datasets/         Dataset guidance; no patient dataset is bundled
+model_artifacts/  Model guidance; no trained weights are bundled
+docker-compose.yml
+run_windows.ps1
+run_windows.bat
+run_unix.sh
 ```
-Then create an empty repository on your Git host and follow its instructions to add a remote and push. A remote GitHub/GitLab repository is not created automatically by this package.
 
-For offline sharing, a companion `BreastCare_AI_Phase1.bundle` can be imported with:
-```bash
-git clone BreastCare_AI_Phase1.bundle BreastCare_AI
-```
-A Git bundle carries Git history and source code, but not ignored model weights, private datasets, or local environment files.
+## Safety and responsible use
 
-## Tests
-```bash
-cd backend
-python -m pip install -r requirements-dev.txt
-pytest -q
-```
+- Use only de-identified data for which you have permission to process.
+- CT and MRI checks inspect DICOM header information only; they do not interpret scans.
+- BRCA preflight checks a cohort table; it does not interpret variants or assess an individual’s risk.
+- The report and general CSV processing pipelines are not implemented in this repository snapshot.
+- Do not use outputs for diagnosis, treatment, screening, or other clinical decisions.
+- Review extracted or summarized information against its original source before relying on it for research.
 
-## Phase 2.1 CSV workflow
-Select **CSV Analysis** in the dashboard, sign in, choose a `.csv` file, and click **Analyze CSV**. The endpoint checks the extension and compatible content type, reads at most 50 MB plus one byte, tries common text encodings, detects common delimiters, validates quoted row structure and field counts, and parses with pandas. It returns dimensions, inferred dtypes, missing-value counts/percentages, numeric summary statistics, and top category counts suitable for charts. Empty, malformed, unsupported, and oversized inputs return actionable HTTP errors. The original file and descriptive result are saved encrypted in local account history. These statistics are not diagnosis or prediction.
+## Development status and next steps
 
-### Run manually on Windows PowerShell
-Backend terminal (from the project root):
-```powershell
-cd backend
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-```
-Frontend terminal (from the project root):
-```powershell
-cd frontend
-npm install
-npm run dev
-```
-Open `http://localhost:5173`. If `.venv` already contains CUDA-enabled PyTorch, activate that environment and install the listed backend requirements there; PyTorch is neither installed nor changed by this project.
+The current work is a software foundation with limited CT/MRI and BRCA input preflight. Future research development would require authorized datasets, clearly defined research questions and labels, patient-level data separation, suitable model development, independent evaluation, and expert review. A trained model should not be described as clinically validated without appropriate evidence.
 
-## Phase 2.2 doctor report text extraction
-Open **Doctor Reports**, sign in, select a PDF or image, and click **Extract text**. Digital PDFs are read from their embedded text. Scanned PDFs and images are processed with Tesseract OCR installed locally on the computer. The encrypted file and extracted text are saved to the account history. Uploads are limited to 25 MB; PDFs are limited to 20 pages. The interface returns extracted text for human review and does not summarize, interpret, or diagnose. OCR can omit or misread content, so compare the output with the source report. If OCR reports that Tesseract is unavailable, install Tesseract OCR, make sure its executable is on `PATH`, and restart the backend terminal.
+See [`RESEARCH_TRACK_STATUS.md`](RESEARCH_TRACK_STATUS.md) for the current CT, MRI, and BRCA track status.
 
-## Research-only experiment results and optional inference
-Open **Experiment results** to view the five-fold BreaKHis summary and the separate 400-image BACH external evaluation. The BACH models were near chance with low non-carcinoma specificity. The output is not clinical validation or patient-care evidence. Detailed methods and limitations are in `BREAKHIS_EXPERIMENT_SUMMARY.md` and `PROJECT_SUBMISSION_REPORT.md`.
+## License and dataset rights
 
-Optional local inference can use one of the included ResNet-18 checkpoints after a compatible Python interpreter with PyTorch, torchvision, and Pillow is verified. The project does not install or pin PyTorch. Set these in `backend/.env` (replace the placeholders with full paths):
-```dotenv
-RESEARCH_MODEL_PYTHON=C:/path/to/your/existing/python.exe
-# Optional fallback for a checkpoint outside the included model selector.
-HISTOPATHOLOGY_CHECKPOINT=../model_artifacts/breakhis/resnet18/fold1_40x/resnet18_fold1_40x.pt
-```
-Restart the backend after changing `.env`. The example path is only a configuration example, not a recommended model. The checkpoint selector can use all 25 included ResNet-18 and scratch-CNN weights; the fallback setting is optional. Generated-image smoke checks passed for the ResNet-18 worker and all five scratch-CNN checkpoints using the existing CPU-only Anaconda environment. The separate CUDA Python environment could not load `c10.dll`, and no PyTorch files were changed. The BACH results were poor. Do not infer from patient images. Grad-CAM is a visualization of model activations, not an explanation of medical causation.
-
-The CT, MRI, and X-ray pages inspect selected single-file headers, check DICOM series consistency, and read NIfTI headers. They do not process voxel values, perform segmentation, or provide prediction. Compatible modality-specific datasets, licensing, models, and evaluation evidence are not provided, so modality-specific prediction cannot responsibly be enabled from the files available here. Header checks are technical input review, not diagnostic safeguards or clinical validation.
-
-### Optional BACH external research evaluation
-After obtaining permission for the intended BACH use, `evaluate_bach_external.py` evaluates the saved BreaKHis ResNet-18 checkpoints on the four-class BACH `Photos` folder. It decodes and resizes images in memory and does not overwrite the dataset. The research-only binary mapping is `Benign` and `Normal` → non-carcinoma, and `InSitu` and `Invasive` → carcinoma; the original BACH labels remain in the per-image predictions. This mapping is study-specific, and results must be reported separately from BreaKHis results. The script evaluates all 20 saved fold/magnification checkpoints and writes JSON metrics, a summary CSV, and per-image predictions. Fold-model spread is not a patient-level confidence interval.
-
-Run from the project root in Windows PowerShell, using the existing CUDA-enabled PyTorch environment (the command does not install or pin PyTorch):
-```powershell
-$python = "$env:USERPROFILE\Downloads\BreastCare_AI_Phase1\BreastCare_AI\.venv\Scripts\python.exe"
-& $python .\evaluate_bach_external.py `
-  --photos-dir "$env:USERPROFILE\Downloads\BACH_External\extracted\ICIAR2018_BACH_Challenge\Photos" `
-  --checkpoints-dir "$env:USERPROFILE\Downloads\BreaKHis\resnet18_results" `
-  --output-dir .\research_results\bach_external `
-  --device cuda
-```
-The outputs are research-only, not for diagnosis or clinical use, and not clinical validation. Keep the dataset permission and required attribution with any report.
-
-## Completed project milestones and remaining research inputs
-- CT/MRI and BRCA model development still requires a defined research task, authorized labeled data, training, and independent evaluation. Mammography development is paused; see `MODEL_DEVELOPMENT_ROADMAP.md` for the track statuses.
-- See `PROJECT_MILESTONES.md` for a delivery checklist and the exact boundary between implemented workflows and model-dependent milestones.
-- Local dashboard and FastAPI API with seven workflows, including a BRCA research-planning page with no genomic upload or prediction.
-- CSV data-quality summaries, descriptive statistics, and chart-ready data; report text extraction; single-image/DICOM-header metadata review.
-- BreaKHis baseline training, fold-wise metrics, BACH external evaluation, result reporting, optional local research inference, and Grad-CAM visualization.
-- Real CT/MRI/X-ray prediction, patient-level BRCA risk prediction, and clinical validation are not included. An offline ClinVar variant-annotation research artifact is available, but it does not predict carrier status for an individual. Encrypted local analysis history and technical DICOM-series/NIfTI header review are implemented. Predictive milestones require compatible, licensed labeled data and rigorous independent evaluation; clinical validation also requires qualified clinical partners and formal study governance.
-
+No project license is declared in this repository. Dataset and model permissions may differ from the permissions for the application code. Check the terms of each dataset, model, or dependency before using or redistributing it.
