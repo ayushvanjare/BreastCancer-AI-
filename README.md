@@ -190,7 +190,7 @@ run_unix.sh
 
 ## Output of the current project.
 
-![Backend startup and successful API responses](docs/screenshot/backend.png)
+![Backend startup and successful API responses](docs/screenshot/Dashboard.png)
 
 ## Development status and next steps
 
