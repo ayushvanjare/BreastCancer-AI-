@@ -188,6 +188,10 @@ run_unix.sh
 - Do not use outputs for diagnosis, treatment, screening, or other clinical decisions.
 - Review extracted or summarized information against its original source before relying on it for research.
 
+## Output of the current project.
+
+![Backend startup and successful API responses](docs/screenshots/backend.png)
+
 ## Development status and next steps
 
 The current work is a software foundation with limited CT/MRI and BRCA input preflight. Future research development would require authorized datasets, clearly defined research questions and labels, patient-level data separation, suitable model development, independent evaluation, and expert review. A trained model should not be described as clinically validated without appropriate evidence.
