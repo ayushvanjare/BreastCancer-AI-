@@ -189,8 +189,20 @@ run_unix.sh
 - Review extracted or summarized information against its original source before relying on it for research.
 
 ## Output of the current project.
+### Researcher Dashboard
+![BreastCare AI researcher dashboard](docs/screenshot/dashboard.png)
 
-![Backend startup and successful API responses](docs/screenshot/backend.png)
+### Histopathology Research Workflow
+![Histopathology model selection and image upload screen](docs/screenshot/Upload_Screen.png)
+
+### Experiment Results
+![Histopathology experiment results and evaluation metrics](docs/screenshot/Experiment_Results.png)
+
+### Model Registry
+![Model registry and model readiness information](docs/screenshot/Model_Registry.png)
+
+### Analysis History
+![Account-scoped analysis history](docs/screenshot/Analysis_History.png)
 
 ## Development status and next steps
 
