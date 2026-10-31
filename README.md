@@ -199,7 +199,7 @@ run_unix.sh
 ![Histopathology experiment results and evaluation metrics](docs/screenshot/Experiment_Results.png)
 
 ### Model Registry
-![Model registry and model readiness information](docs/screenshot/Model_Registry.png)
+![Model registry and model readiness information](docs/screenshot/Module_Registry.png)
 
 ### Analysis History
 ![Account-scoped analysis history](docs/screenshot/Analysis_History.png)
